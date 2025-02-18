@@ -6,10 +6,13 @@ This project aims to classify breast X-ray images using deep learning models to 
 
 ## Main Features
 
-1. Manually build a Vision Transformer (ViT).
-2. Crop images by `cv2.connectedComponentsWithStats` to highlight the effective parts, as the effective part in the original data occupies less than half.
-3. Provide two ways (PyTorch TensorBoard and Weights & Biases) to monitor training and validation.
-4. Use `Parallel` to process images concurrently.
+1. Data Preprocessing
+   * Crop images by `cv2.connectedComponentsWithStats` to highlight the effective parts, as the effective part in the original data occupies less than half.
+   * Use `Parallel` to process images concurrently.
+2. Model Selection
+   * Manually build a Vision Transformer (ViT).
+3. Fine Tuning Hyperparameters
+   * Provide two ways (PyTorch TensorBoard and Weights & Biases) to monitor training and validation.
 
 ## Results
 
@@ -20,6 +23,12 @@ This project aims to classify breast X-ray images using deep learning models to 
 | backbone | vit_base_in21k | subset  | 10    | 0.56   | 0.57       | 0.61          |
 | v2       | Best pth from previous run | subset  | 20    | 0.68   | 0.68       | 0.686         |
 | v3       | Best pth from v2 | subset & cropped  | 20    | 0.71   | 0.71       | 0.71         |
+
+## Potential performance improvement ideas:
+
+1. Modify Transformer Model Architecture – Referencing relevant research papers, adjust the Transformer model’s structure to enable it to learn from images originating from different sources separately and then integrate them within the model.
+
+2. Handling Large-Sized Images – Implement a batch segmentation approach, which allows the model to capture finer image details while ensuring that training can be completed using limited computational resources.
 
 ## File Descriptions
 
