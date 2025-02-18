@@ -1,0 +1,7 @@
+/data
+/vitmodel/__pycache__
+/vitmodel/runs
+/vitmodel/wandb
+/vitmodel/weights
+*.pth
+*.csv
